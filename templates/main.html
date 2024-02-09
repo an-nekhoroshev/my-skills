@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block main %}
+    <h1>Мои проекты</h1>
+    <div class="main">
+        <a href="{% url 'short' %}">
+            <div class="project">
+                <img src="../pictures/short_link_images/main1.jpg" alt="Сокращение ссылок"  >
+                <h4>Сокращение ссылок</h4>
+            </div>
+        </a>
+    </div>
+{% endblock main %}
+

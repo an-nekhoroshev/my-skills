@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block main %}
+    <h1>{{ title }}</h1>
+
+    {% if user.is_authenticated %}
+
+        <div class="form-section">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% if text %}<p class="link-info">{{ text }}</p>{% endif %}
+                <button type="submit" class="btn-outline-light">Добавить ссылку</button>
+            </form>
+        </div>
+
+        {% if links != '' %}
+        <div class="link">
+            <h3>Ваши ссылки:</h3>
+            <ul>
+            {% for link in links %}
+                <li>
+                    <form method="POST" action="{% url 'link-delete' link.slug %}">
+                        {% csrf_token %}
+                        <button><i class="bi bi-trash3-fill" title="Удалить"></i></button>
+                        <input type="hidden" value="DELETE">
+                        <a href="{{ link.long_link }}"><div><b>{{ link.slug }}</b> ({{ link.name_link }})</div></a>
+                    </form>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+    {% else %}
+        <p>Для доступа к ресурсу необходимо авторизоваться</p>
+        <a href="{% url 'user' %}"><button class="btn-outline-light">Вход <i class="bi bi-box-arrow-in-right"></i></button></a>
+    {% endif %}
+    
+{% endblock main %}
+

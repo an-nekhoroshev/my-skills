@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% block main %}
+    <h1>{{ title }}</h1>
+    
+    {% if request.user.is_superuser %}
+        <div class="link">
+            <h3>Сообщения пользователей:</h3>
+            <ul>
+            {% for mess in mess %}
+                <li>
+                <form method="POST" action="{% url 'message-delete' mess.id %}">
+                    {% csrf_token %}
+                    <p><b>Дата:</b> {{ mess.date|date:"d E Y в H:i" }}<br>
+                    <b>От:</b> {{ mess.name }} ({{ mess.email }})</p>
+                    <p><b>Тема:</b> {{ mess.title|safe }}<br>
+                    <b>Сообщение:</b> {{ mess.text|safe }}</p>
+                    <hr>
+                    <button><i class="bi bi-trash3-fill" title="Удалить"></i></button>
+                        Прочитано:<input type="checkbox" {% if mess.read %} checked {% endif %} />
+                    <input type="hidden" value="DELETE">
+                </form>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <div class="form-section">
+         <form method="POST" id="messageForm">
+            {%  csrf_token %}
+            {{ messageForm.as_p }}
+            <button class="btn-outline-light" type="submit">Отправить</button>
+        </form>
+        </div>
+    {% endif %}
+    
+{% endblock main %}

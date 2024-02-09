@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block main %}
+    <h1>{{ title }}</h1>
+
+    <div class="form-section">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn-warning">Зарегистрироваться <i class="bi bi-person-plus"></i></button>
+        </form>
+        <hr>
+        Уже зарегистрированы? <a href="{% url 'user' %}">Войти в личный кабинет</a>
+    </div>
+{% endblock main %}

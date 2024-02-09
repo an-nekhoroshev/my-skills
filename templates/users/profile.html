@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block main %}
+    <h1>{{ title }}</h1>
+
+    <div class="form-section">
+        <div>
+            <div><img src="{{ user.profile.img.url }}"></div>
+            <div>
+                <span>{{ user.username }}</span>
+                <p>({{ user.email }})</p>
+            </div>
+        </div>
+        <h3>Изменить данные пользователя</h3>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ update_user.as_p }}
+            {{ img_profile.as_p }}
+            <button type="submit" class="btn-outline-light">Обновить данные</button>
+            <a href="{% url 'pass-reset' %}"><button type="button" class="btn-warning">Изменить пароль</button></a>
+        </form>
+    </div>
+{% endblock main %}

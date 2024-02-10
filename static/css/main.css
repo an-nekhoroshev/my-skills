@@ -56,6 +56,9 @@ header {
     color: white;
     background-color: #333;
     margin-bottom: 30px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
 }
 
 .menu {

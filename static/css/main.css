@@ -44,7 +44,13 @@ a {
 }
 a:hover {color: darkgray}
 
-hr {margin: 20px 0}
+hr {
+    margin: 20px 0;
+    border: none; /* Убираем границу для браузера Firefox */
+    color: darkgray; /* Цвет линии для остальных браузеров */
+    background-color: darkgray; /* Цвет линии для браузера Firefox и Opera */
+    height: 2px; /* Толщина линии */
+}
 
 h1, h3 {margin-bottom: 20px}
 
@@ -276,11 +282,11 @@ input[type="file"] {
     transition: all 300ms ease;
 }
 .project:hover img {transform: scale(1.02)}
-.project h4 {
+.project p {
     transition: all 300ms ease;
     margin-left: 3px;
 }
-.project:hover h4 {color: #ccc}
+.project:hover p {color: #ccc}
 .project:hover {background-color: #393939}
 
 

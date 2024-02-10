@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import UserOurRegistraion, ProfileImage, UserUpdateForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 def register(request):
@@ -10,8 +12,19 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            email = form.cleaned_data.get('email')
             messages.success(request, f'Аккаунт {username} был создан, введите имя пользователя и пароль '
                                       f'для авторизации')
+
+            # Письмо пользователю
+            subject = 'Регистрация на сайте MySkills'
+            plain_message = f'Регистрация на сайте MySkills. Имя пользователя: {username}; email: {email}; пароль: {password}'
+            from_email = settings.EMAIL_HOST_USER
+            to = email
+            send_mail(subject, plain_message, from_email, [to])
+            send_mail(subject, plain_message, from_email, [from_email])
+
             return redirect('user')
     else:
         form = UserOurRegistraion()

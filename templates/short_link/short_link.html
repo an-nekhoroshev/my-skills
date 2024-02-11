@@ -10,7 +10,7 @@
                 {% csrf_token %}
                 {{ form.as_p }}
                 {% if text %}<p class="link-info">{{ text }}</p>{% endif %}
-                <button type="submit" class="btn-outline-light">Добавить ссылку</button>
+                <button type="submit" class="btn btn-outline-light">Добавить ссылку</button>
             </form>
         </div>
 
@@ -34,7 +34,7 @@
 
     {% else %}
         <p>Для доступа к ресурсу необходимо авторизоваться</p>
-        <a href="{% url 'user' %}"><button class="btn-outline-light">Вход <i class="bi bi-box-arrow-in-right"></i></button></a>
+        <a href="{% url 'user' %}"><button class="btn btn-outline-light">Вход <i class="bi bi-box-arrow-in-right"></i></button></a>
     {% endif %}
     
 {% endblock main %}

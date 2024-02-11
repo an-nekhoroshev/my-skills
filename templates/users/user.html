@@ -7,7 +7,7 @@
         <form method="POST">
             {% csrf_token %}
             {{ form }}
-            <button type="submit" class="btn-outline-light">Войти <i class="bi bi-box-arrow-in-right"></i></button>
+            <button type="submit" class="btn btn-outline-light">Войти <i class="bi bi-box-arrow-in-right"></i></button>
         </form>
         <hr>
         Забыли пароль? <a href="{% url 'pass-reset' %}">Получите новый</a>

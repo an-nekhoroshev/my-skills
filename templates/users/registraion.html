@@ -7,7 +7,7 @@
         <form method="POST">
             {% csrf_token %}
             {{ form }}
-            <button type="submit" class="btn-warning">Зарегистрироваться <i class="bi bi-person-plus"></i></button>
+            <button type="submit" class="btn btn-warning">Зарегистрироваться <i class="bi bi-person-plus"></i></button>
         </form>
         <hr>
         Уже зарегистрированы? <a href="{% url 'user' %}">Войти в личный кабинет</a>

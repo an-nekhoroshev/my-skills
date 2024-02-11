@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block main %}
+    
+    <h1>Список дел</h1>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control task" placeholder="Задача">
+        <button class="btn btn-outline-light show-task-add-info" type="button">Добавить</button>
+    </div>
+    <button type="button" class="btn btn-outline-light tasks-btn">Мои задачи: <span class="badge bg-danger" id="tasks">0</span></button>
+    <div class="alert alert-success task-add-info" role="alert">Задача добавлена</div>
+    
+    <div class="tasks mt-3 ms-3"></div>
+
+{% endblock main %}
+

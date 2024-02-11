@@ -15,8 +15,8 @@
             {% csrf_token %}
             {{ update_user.as_p }}
             {{ img_profile.as_p }}
-            <button type="submit" class="btn-outline-light">Обновить данные</button>
-            <a href="{% url 'pass-reset' %}"><button type="button" class="btn-warning">Изменить пароль</button></a>
+            <button type="submit" class="btn btn-outline-light">Обновить данные</button>
+            <a href="{% url 'pass-reset' %}"><button type="button" class="btn btn-warning">Изменить пароль</button></a>
         </form>
     </div>
 {% endblock main %}

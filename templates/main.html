@@ -2,23 +2,30 @@
 
 {% block main %}
     <h1>Мои проекты</h1>
-    
     <div class="main">
+    
         <a href="{% url 'short' %}">
             <div class="project">
-                <img src="../pictures/short_link_images/main1.jpg" alt="Сокращение ссылок"  >
+                <img src="../pictures/short_link_images/main1.jpg" alt="Сокращение ссылок">
                 <p><b>Сокращение ссылок</b> (Django)</p>
             </div>
         </a>
     
         <a href="{% url 'todo_list' %}">
             <div class="project">
-                <img src="../pictures/to-do_list/tasks.jpg" alt="Список дел"  >
+                <img src="../pictures/to-do_list/tasks.jpg" alt="Список дел">
                 <p><b>Список дел</b> (jQuery)</p>
             </div>
         </a>
-    </div>
     
+        <a href="{% url 'game_rsp' %}">
+            <div class="project">
+                <img src="../pictures/game_rsp/rsp.png" alt="Камень, ножницы, бумага">
+                <p><b>Камень, ножницы, бумага</b> (Python)</p>
+            </div>
+        </a>
+    
+    </div>
     <hr>
     <p>Код ресурса размещен на <a href="https://github.com/an-nekhoroshev/my-skills.git">GitHub</a></p>
 {% endblock main %}

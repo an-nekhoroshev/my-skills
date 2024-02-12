@@ -11,6 +11,7 @@ urlpatterns = [
     path('user/', include('users.urls')),
     path('short/', include('short_link.urls')),
     path('contacts/', include('contacts.urls')),
+    path('game_rsp/', include('game_rsp.urls')),
 ]
 
 if settings.DEBUG:

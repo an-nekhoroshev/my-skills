@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'short_link',
     'users.apps.UsersConfig',
     'contacts',
+    'game_rsp',
 ]
 
 MIDDLEWARE = [

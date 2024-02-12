@@ -75,13 +75,14 @@ header {
     list-style: none;
     flex-wrap: wrap;
     margin: 5px 5px;
+    padding-left: 0;
 }
 .menu div {text-align: right}
 
-.logo {font-size: 30px}
+.logo {font-size: 38px}
 .logo i {
     color: #de3646;
-    font-size: 30px;
+    font-size: 38px;
 }
 .logo:hover {color: white}
 
@@ -109,13 +110,14 @@ header {
     margin-right: 20px;
     margin-bottom: 20px;
 }
-.form-section span {
-    font-size: 26px;
-    font-weight: 700;
-}
 form .helptext {
     font-size: 13px;
     color: #999;
+    display: table;
+}
+form .helptext ul {
+    list-style: none;
+    margin-bottom: 0;
 }
 form .errorlist {
     font-size: 13px;
@@ -123,15 +125,25 @@ form .errorlist {
     margin-bottom: 10px;
     margin-left: 15px;
 }
-form .helptext ul {list-style: none}
-form div {width: 100%}
+form p, form div {
+    margin-bottom: 15px;
+    width: 100%;
+}
+form label {
+    margin-top: 10px;
+}
+form button {
+    margin-top: 10px;
+}
 form input {
     display: block;
     width: 100%;
     padding: 10px 12px;
     border-radius: 5px;
     font-size: 14px;
-    margin-bottom: 15px
+}
+form br {
+    display: none;
 }
 form textarea {
     display: block;
@@ -146,7 +158,6 @@ form textarea {
     font-style: normal;
     font-size: 14px;
 }
-form p, form div {margin-bottom: 15px}
 input[type="checkbox"] {
     display: inline;
     width: 25px;
@@ -200,6 +211,7 @@ input[type="file"] {
     float: left;
     border: none;
     background: none;
+    margin-top: 0;
 }
 .link ul li i {
     font-size: 18px;
@@ -231,7 +243,7 @@ input[type="file"] {
     justify-content: space-between;
 }
 .project {
-    width: 320px;
+    width: 300px;
     box-shadow: 0 2px 4px 0 rgb(5 5 5 / 50%);
     border-radius: 5px;
     color: white;
@@ -288,7 +300,7 @@ input[type="file"] {
 /*Камень, ножницы, бумага*/
 .rsp-img {
     width: 180px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-right: 5px;
 }
 .rsp-btn {
@@ -298,4 +310,22 @@ input[type="file"] {
 .rsp-div {
     display: flex;
     flex-wrap: wrap;
+}
+
+
+/*Адаптация для меленьких экранов*/
+@media (max-width: 767px) {
+    .menu {justify-content: center}
+    .menu a {padding: 0 5px}
+    .menu ul {justify-content: center}
+    .menu div {text-align: center}
+    .main {
+        align-items: center;
+        justify-content: center;
+    }
+    .rsp-div {
+        align-items: center;
+        justify-content: center;
+    }
+    .rsp-small {text-align: center}
 }

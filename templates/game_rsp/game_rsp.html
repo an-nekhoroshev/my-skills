@@ -3,6 +3,7 @@
 {% block main %}
     
     <h1>{{ title }}</h1>
+    <div class="rsp-small">
     
     {% if result == 'draw' %}
         <h5>Ничья!</h5>
@@ -85,6 +86,8 @@
             </form>
         </div>
     {% endif %}
+    
+    </div>
     
 {% endblock main %}
 

@@ -7,3 +7,7 @@ def home(request):
 
 def todo_list(request):
     return render(request, 'to-do_list/to-do_list.html', {'title': 'Список дел'})
+
+
+def calculator(request):
+    return render(request, 'calculator/calc.html', {'title': 'Калькулятор'})

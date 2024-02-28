@@ -5,12 +5,18 @@
     <h1>{{ title }}</h1>
     <div class="rsp-small">
     
-    {% if result == 'draw' %}
-        <h5>Ничья!</h5>
+    {% if result == 'draw' or result == 'user' or result == 'bot' %}
+        {% if result == 'draw' %}
+            <h5>Ничья!</h5>
+        {% elif result == 'user' %}
+            <h5>Поздравляю, ты победил!</h5>
+        {% elif result == 'bot' %}
+            <h5>Ты проиграл!</h5>
+        {% endif %}
         <p>Общий счет: у тебя {{ user_count }}, у меня {{ bot_count }}</p>
         <div class="rsp-div">
-            <img src="../../pictures/game_rsp/{{ user_choice }}.png" class="rsp-img" alt="{{ user_choice }}">
-            <img src="../../pictures/game_rsp/{{ bot_choice }}.png" class="rsp-img" alt="{{ bot_choice }}">
+            <img src="../../pictures/game_rsp/{{ user_choice }}.png" class="rsp-img mt-2" alt="{{ user_choice }}">
+            <img src="../../pictures/game_rsp/{{ bot_choice }}.png" class="rsp-img mt-2" alt="{{ bot_choice }}">
         </div>
         <form method="POST">
             {% csrf_token %}
@@ -20,69 +26,33 @@
             <button type="submit" class="btn btn-outline-dark">Играем еще?</button>
         </form>
         
-    {% elif result == 'user' %}
-        <h5>Поздравляю, ты победил!</h5>
-        <p>Общий счет: у тебя {{ user_count }}, у меня {{ bot_count }}</p>
-        <div class="rsp-div">
-            <img src="../../pictures/game_rsp/{{ user_choice }}.png" class="rsp-img" alt="{{ user_choice }}">
-            <img src="../../pictures/game_rsp/{{ bot_choice }}.png" class="rsp-img" alt="{{ bot_choice }}">
-        </div>
-        <form method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="rsp" value="next">
-            <input type="hidden" name="user_count" value="{{ user_count }}">
-            <input type="hidden" name="bot_count" value="{{ bot_count }}">
-            <button type="submit" class="btn btn-outline-dark">Играем еще?</button>
-        </form>
-        
-    {% elif result == 'bot' %}
-        <h5>Ты проиграл!</h5>
-        <p>Общий счет: у тебя {{ user_count }}, у меня {{ bot_count }}</p>
-        <div class="rsp-div">
-            <img src="../../pictures/game_rsp/{{ user_choice }}.png" class="rsp-img" alt="{{ user_choice }}">
-            <img src="../../pictures/game_rsp/{{ bot_choice }}.png" class="rsp-img" alt="{{ bot_choice }}">
-        </div>
-        <form method="POST">
-            {% csrf_token %}
-            <input type="hidden" name="rsp" value="next">
-            <input type="hidden" name="user_count" value="{{ user_count }}">
-            <input type="hidden" name="bot_count" value="{{ bot_count }}">
-            <button type="submit" class="btn btn-outline-dark">Играем еще?</button>
-        </form>
-        
-        
-{#    Начало игры#}
     {% else %}
         {% if result != 'next' %}
             <h3>{{ username }}</h3>
         {% endif %}
-        
         <h5>Что выберешь?</h5>
         <p>Общий счет: у тебя {{ user_count }}, у меня {{ bot_count }}</p>
-        
         <div class="rsp-div">
             <form method="POST">
                 {% csrf_token %}
+                <button type="submit" class="rsp-btn"><img src="../../pictures/game_rsp/rock.png" class="rsp-img" alt="Камень"></button>
                 <input type="hidden" name="rsp" value="rock">
                 <input type="hidden" name="user_count" value="{{ user_count }}">
                 <input type="hidden" name="bot_count" value="{{ bot_count }}">
-                <button type="submit" class="rsp-btn"><img src="../../pictures/game_rsp/rock.png" class="rsp-img" alt="Камень"></button>
             </form>
-            
             <form method="POST">
                 {% csrf_token %}
+                <button type="submit" class="rsp-btn"><img src="../../pictures/game_rsp/scissors.png" class="rsp-img" alt="Ножницы"></button>
                 <input type="hidden" name="rsp" value="scissors">
                 <input type="hidden" name="user_count" value="{{ user_count }}">
                 <input type="hidden" name="bot_count" value="{{ bot_count }}">
-                <button type="submit" class="rsp-btn"><img src="../../pictures/game_rsp/scissors.png" class="rsp-img" alt="Ножницы"></button>
             </form>
-            
             <form method="POST">
                 {% csrf_token %}
+                <button type="submit" class="rsp-btn"><img src="../../pictures/game_rsp/paper.png" class="rsp-img" alt="Бумага"></button>
                 <input type="hidden" name="rsp" value="paper">
                 <input type="hidden" name="user_count" value="{{ user_count }}">
                 <input type="hidden" name="bot_count" value="{{ bot_count }}">
-                <button type="submit" class="rsp-btn"><img src="../../pictures/game_rsp/paper.png" class="rsp-img" alt="Бумага"></button>
             </form>
         </div>
     {% endif %}

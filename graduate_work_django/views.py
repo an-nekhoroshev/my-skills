@@ -11,3 +11,7 @@ def todo_list(request):
 
 def calculator(request):
     return render(request, 'calculator/calc.html', {'title': 'Калькулятор'})
+
+
+def telephone_directory(request):
+    return render(request, 'telephone_directory/telephone_directory.html', {'title': 'Телефонный справочник'})
